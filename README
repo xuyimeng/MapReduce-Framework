@@ -1,0 +1,19 @@
+Author name:  ____Yimeng Xu__________
+**********************************************************************
+Introduction for this project:
+This project build a distributed framework which essentially emulates Apache Storm.
+— and the process also emulates MapReduce. The framework is tested by simple WordCount.
+
+Storm conduct computation over units of data in streams. I extend it to MapReduce-style architecture with two types of nodes: a number of workers and a single master. The communication between master and slave nodes is done by servlet and servlet container(Tomcat/Jetty). 
+
+Map and reduce functions are implemented within StormLite bolts. Workers run spouts and bolts and store the data that MapReduce framework is working on. The master coordinates the workers and provides a user Interface. A key issue is that in a MapReduce job, the inputs end and the reduce can only start once all inputs have been read. 
+
+**********************************************************************
+instructions for building and running the solution:
+
+First run masterservlet.java on Tomcat/Jetty
+Then run WorkerServer.java by specifying three args in run configuration:
+         input argument: [Master IP:port],[storage dir],[worker port]
+Then in browser at localhost:8000/status could see status of workers and submit job
+
+
